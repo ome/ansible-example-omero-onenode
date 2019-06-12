@@ -7,7 +7,7 @@ lint:
   name: yamllint
 platforms:
   - name: omero-all
-    image: openmicroscopy/centos-systemd-ip
+    image: centos/systemd
     image_version: latest
     privileged: true
     command: /sbin/init
