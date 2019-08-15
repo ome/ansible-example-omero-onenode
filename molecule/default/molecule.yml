@@ -22,9 +22,6 @@ provisioner:
       omero-all:
         omero_server_systemd_require_network: false
         postgresql_version: "9.6"
-        # Temporary workaround for
-        # https://forum.image.sc/t/fyi-not-possible-to-create-new-omero-instance-with-latest-postgresql-versions/26929
-        postgresql_package_version: 9.6.13
 scenario:
   name: default
 verifier:
