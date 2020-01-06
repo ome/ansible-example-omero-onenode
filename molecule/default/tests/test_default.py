@@ -11,7 +11,7 @@ OMERO = '/opt/omero/server/OMERO.server/bin/omero'
 
 
 def test_db_running_and_enabled(host):
-    service = host.service('postgresql-9.6')
+    service = host.service('postgresql-10')
     assert service.is_running
     assert service.is_enabled
 
