@@ -1,7 +1,7 @@
 ---
 
 - src: ome.postgresql
-  version: 3.1.0
+  version: 4.0.0
 
 - src: ome.omero_server
   version: 3.0.0
