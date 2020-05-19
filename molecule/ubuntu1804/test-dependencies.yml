@@ -1,0 +1,7 @@
+---
+- hosts: omero-ubuntu1804
+  tasks:
+    - name: Install curl for tests
+      become: true
+      package:
+        name: curl
