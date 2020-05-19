@@ -1,5 +1,5 @@
 ---
-- hosts: omero-all
+- hosts: omero-ubuntu1804
   roles:
     - role: ome.postgresql
       postgresql_databases:
@@ -10,6 +10,8 @@
           databases: [omero]
     - role: ome.omero_server
       omero_server_rootpassword: ChangeMe
+      omero_server_selfsigned_certificates: true
     - role: ome.omero_web
   vars:
+    ansible_python_interpreter: /usr/bin/python3
     postgresql_version: "11"

@@ -1,5 +1,4 @@
 ---
-sudo: required
 language: python
 
 services:
@@ -9,4 +8,8 @@ install:
   - pip install ome-ansible-molecule
 
 script:
-  - molecule test
+  - molecule test -s $SCENARIO
+
+env:
+  - SCENARIO=centos7
+  - SCENARIO=ubuntu1804
