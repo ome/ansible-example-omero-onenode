@@ -1,5 +1,5 @@
 ---
-- hosts: omero-ubuntu1804
+- hosts: omero-all
   tasks:
     - name: Install curl for tests
       become: true
