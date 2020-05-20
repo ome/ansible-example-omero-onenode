@@ -1,5 +1,5 @@
 ---
-- hosts: omero-ubuntu1804
+- hosts: omero-all
   roles:
     - role: ome.postgresql
       postgresql_databases:
