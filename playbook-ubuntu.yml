@@ -1,5 +1,7 @@
 ---
 - hosts: omero-all
+  # Some dependent roles do not set become, so set it here
+  become: true
   roles:
     - role: ome.postgresql
       postgresql_databases:
@@ -11,6 +13,7 @@
     - role: ome.omero_server
       omero_server_rootpassword: ChangeMe
       omero_server_selfsigned_certificates: true
+      omero_server_systemd_require_network: false
     - role: ome.omero_web
   vars:
     ansible_python_interpreter: /usr/bin/python3
