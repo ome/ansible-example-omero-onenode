@@ -9,7 +9,7 @@ lint:
   name: yamllint
 platforms:
   - name: omero-all
-    image: jrei/systemd-ubuntu:18.04
+    image: jrei/systemd-ubuntu:20.04
     command: /sbin/init
     privileged: true
     tmpfs:
@@ -22,7 +22,7 @@ provisioner:
     prepare: test-dependencies.yml
     converge: ../../playbook-ubuntu.yml
 scenario:
-  name: ubuntu1804
+  name: ubuntu2004
 verifier:
   name: testinfra
   lint:
