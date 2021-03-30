@@ -19,10 +19,6 @@ provisioner:
     name: ansible-lint
   playbooks:
     converge: ../../playbook.yml
-  inventory:
-    host_vars:
-      omero-all:
-        omero_server_systemd_require_network: false
 scenario:
   name: centos7
 verifier:

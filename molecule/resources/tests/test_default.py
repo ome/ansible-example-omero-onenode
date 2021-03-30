@@ -11,7 +11,10 @@ OMERO = '/opt/omero/server/OMERO.server/bin/omero'
 
 
 def test_db_running_and_enabled(host):
-    service = host.service('postgresql@11-main')
+    if host.system_info.distribution == 'ubuntu':
+        service = host.service('postgresql@11-main')
+    else:
+        service = host.service('postgresql-11')
     assert service.is_running
     assert service.is_enabled
 
