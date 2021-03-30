@@ -20,7 +20,7 @@ provisioner:
     name: ansible-lint
   playbooks:
     prepare: test-dependencies.yml
-    converge: ../../playbook-ubuntu.yml
+    converge: ../../playbook.yml
 scenario:
   name: ubuntu2004
 verifier:
