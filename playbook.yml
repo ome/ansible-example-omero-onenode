@@ -1,8 +1,13 @@
 ---
+- hosts: all
+  tasks:
+    - name: Set OS distribution dependent variables
+      include_vars: "{{ ansible_facts['os_family'] | lower }}.yml"
+      when: ansible_facts['os_family'] == "Debian"
+
 - hosts: omero-all
   roles:
     - role: ome.postgresql
-      postgresql_install_server: true
       postgresql_databases:
         - name: omero
       postgresql_users:

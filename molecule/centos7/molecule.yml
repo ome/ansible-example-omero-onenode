@@ -1,6 +1,8 @@
 ---
 dependency:
   name: galaxy
+  options:
+    role-file: requirements.yml
 driver:
   name: docker
 lint:
@@ -17,13 +19,8 @@ provisioner:
     name: ansible-lint
   playbooks:
     converge: ../../playbook.yml
-  inventory:
-    host_vars:
-      omero-all:
-        omero_server_systemd_require_network: false
-        postgresql_version: "10"
 scenario:
-  name: default
+  name: centos7
 verifier:
   name: testinfra
   lint:

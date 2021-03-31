@@ -1,6 +1,6 @@
 import os
 import pytest
-from time import sleep
+from time import sleep, time
 import testinfra.utils.ansible_runner
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
@@ -11,7 +11,10 @@ OMERO = '/opt/omero/server/OMERO.server/bin/omero'
 
 
 def test_db_running_and_enabled(host):
-    service = host.service('postgresql-11')
+    if host.system_info.distribution == 'ubuntu':
+        service = host.service('postgresql@11-main')
+    else:
+        service = host.service('postgresql-11')
     assert service.is_running
     assert service.is_enabled
 
@@ -23,9 +26,11 @@ def test_srv_running_and_enabled(host):
 
 
 def test_omero_login(host):
+    # Ubuntu sudo doesn't set HOME so it tries to write to /root
+    env = 'OMERO_USERDIR=/tmp/omero-{}'.format(time())
     with host.sudo('omero-server'):
         host.check_output(
-            '%s login -C -s localhost -u root -w ChangeMe' % OMERO)
+            '%s %s login -C -s localhost -u root -w ChangeMe' % (env, OMERO))
 
 
 @pytest.mark.parametrize('name', ['omero-web', 'nginx'])
