@@ -19,7 +19,6 @@ provisioner:
   lint:
     name: ansible-lint
   playbooks:
-    prepare: test-dependencies.yml
     converge: ../../playbook.yml
 scenario:
   name: ubuntu2004
