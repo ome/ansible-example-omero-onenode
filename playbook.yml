@@ -8,8 +8,6 @@
 - hosts: all
   roles:
     - role: ome.postgresql
-      postgresql_dist_setup: 
-        postgresql_dist_datadir: "/OMERO"
       postgresql_databases:
         - name: omero
       postgresql_users:
@@ -21,4 +19,3 @@
     - role: ome.omero_web
   vars:
     postgresql_version: "13"
-    postgresql_dist_datadir: "/OMERO"
