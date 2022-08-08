@@ -1,13 +1,15 @@
 ---
-- hosts: all
+- hosts: ome-training-3.openmicroscopy.org
   tasks:
     - name: Set OS distribution dependent variables
       include_vars: "{{ ansible_facts['os_family'] | lower }}.yml"
       when: ansible_facts['os_family'] == "Debian"
 
-- hosts: omero-all
+- hosts: ome-training-3.openmicroscopy.org
   roles:
     - role: ome.postgresql
+      postgresql_dist_setup: 
+        postgresql_dist_datadir: "/OMERO"
       postgresql_databases:
         - name: omero
       postgresql_users:
@@ -18,4 +20,5 @@
       omero_server_rootpassword: ChangeMe
     - role: ome.omero_web
   vars:
-    postgresql_version: "11"
+    postgresql_version: "13"
+    postgresql_dist_datadir: "/OMERO"
