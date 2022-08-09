@@ -14,7 +14,7 @@ def test_db_running_and_enabled(host):
     if host.system_info.distribution == 'ubuntu':
         service = host.service('postgresql@11-main')
     else:
-        service = host.service('postgresql-11')
+        service = host.service('postgresql-13')
     assert service.is_running
     assert service.is_enabled
 
