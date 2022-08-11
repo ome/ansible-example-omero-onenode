@@ -3,6 +3,9 @@
 - src: ome.postgresql
   version: 5.2.0
 
+- src: ome.postgresql_client
+  version: 0.2.0
+
 - src: ome.omero_server
   version: 4.0.2
 
