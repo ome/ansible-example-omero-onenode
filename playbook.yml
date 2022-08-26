@@ -15,7 +15,7 @@
           password: omero
           databases: [omero]
     - role: ome.omero_server
-      omero_server_selfsigned_certificates: True
+      omero_server_selfsigned_certificates: true
       omero_server_rootpassword: ChangeMe
     - role: ome.omero_web
   vars:
