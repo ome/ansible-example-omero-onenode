@@ -20,5 +20,6 @@
     - role: ome.omero_web
       omero_web_config_set:
         omero.web.application_server.host: "0.0.0.0"
+        omero.web.debug: true
   vars:
     postgresql_version: "13"
