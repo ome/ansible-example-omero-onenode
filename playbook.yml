@@ -18,5 +18,7 @@
       omero_server_selfsigned_certificates: true
       omero_server_rootpassword: ChangeMe
     - role: ome.omero_web
+      omero_web_config_set:
+        omero.web.application_server.host: "0.0.0.0"
   vars:
     postgresql_version: "13"
