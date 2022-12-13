@@ -16,7 +16,7 @@
           databases: [omero]
     - role: ome.omero_server
       omero_server_selfsigned_certificates: true
-      omero_server_rootpassword: ChangeMe2
+      omero_server_rootpassword: ChangeMe
     - role: ome.omero_web
   vars:
     postgresql_version: "13"
